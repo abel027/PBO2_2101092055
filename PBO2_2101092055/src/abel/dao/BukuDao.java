@@ -5,20 +5,18 @@
  */
 package abel.dao;
 
-import abel.model.Buku;
 import java.sql.Connection;
 import java.util.List;
-
+import abel.model.Buku;
 
 /**
  *
  * @author User
  */
 public interface BukuDao {
-    
-    void insert(Connection con, Buku buku) throws Exception;
-    void update(Connection con, Buku buku) throws Exception;
-    void delete(Connection con, Buku buku) throws Exception;
-    public Buku getAnggota(Connection con, String Kode) throws Exception;
+    public void insert(Connection con, Buku buku) throws Exception;
+    public void update(Connection con, Buku buku) throws Exception;
+    public void delete(Connection con, Buku buku) throws Exception;
+    public Buku getBuku(Connection con, String kode) throws Exception;
     public List<Buku> getAllBuku(Connection con) throws Exception;
 }
