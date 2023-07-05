@@ -14,16 +14,16 @@ import java.sql.SQLException;
  * @author User
  */
 public class Koneksi {
-    private final String url = "jdbc:mysql://localhost/pbo2_2101092055";
-    private String username = "root";
+    private String url = "jdbc:mysql://localhost/pbo2_2101092055";
+    private String username="root";
     private String password = "";
+    
 
-    public Connection getKoneksi() throws ClassNotFoundException, SQLException{
+    public Connection getKoneksi() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         return DriverManager.getConnection(url, username, password);
     }
+    
 
-    Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
+
