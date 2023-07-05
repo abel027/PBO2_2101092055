@@ -24,45 +24,31 @@ public class FormAnggota extends javax.swing.JFrame {
         initComponents();
         controller = new AnggotaController(this);
         controller.clearForm();
-        controller.isiCboJenisKelamin();
         controller.tampil();
     }
 
-    public JComboBox<String> getCbojeniskelamin() {
-        return cbojeniskelamin;
+    public JComboBox<String> getCboJeniskelamin() {
+        return cboJeniskelamin;
     }
 
-    public void setCbojeniskelamin(JComboBox<String> cbojeniskelamin) {
-        this.cbojeniskelamin = cbojeniskelamin;
+    public JTable getTblAnggota() {
+        return tblAnggota;
     }
 
-    public JTextField getTxtalamat() {
-        return txtalamat;
+    public JTextField getTxtAlamat() {
+        return txtAlamat;
     }
 
-    public void setTxtalamat(JTextField txtalamat) {
-        this.txtalamat = txtalamat;
+    public JTextField getTxtKodeanggota() {
+        return txtKodeanggota;
     }
 
-    public JTextField getTxtkodeanggota() {
-        return txtkodeanggota;
+    public JTextField getTxtNamaanggota() {
+        return txtNamaanggota;
     }
 
-    public void setTxtkodeanggota(JTextField txtkodeanggota) {
-        this.txtkodeanggota = txtkodeanggota;
-    }
+    
 
-    public JTextField getTxtnamaanggota() {
-        return txtnamaanggota;
-    }
-
-    public void setTxtnamaanggota(JTextField txtnamaanggota) {
-        this.txtnamaanggota = txtnamaanggota;
-    }
-
-    public JTable getTblanggota() {
-        return tblanggota;
-    }
     
     
 
@@ -75,137 +61,152 @@ public class FormAnggota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        txtKodeanggota = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        txtNamaanggota = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txtAlamat = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtkodeanggota = new javax.swing.JTextField();
-        txtnamaanggota = new javax.swing.JTextField();
-        txtalamat = new javax.swing.JTextField();
-        cbojeniskelamin = new javax.swing.JComboBox<>();
-        btninsert = new javax.swing.JButton();
+        cboJeniskelamin = new javax.swing.JComboBox<>();
+        btnInsert = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        btnCari = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblanggota = new javax.swing.JTable();
-        btnupdate = new javax.swing.JButton();
-        btndelete = new javax.swing.JButton();
-        btncancel = new javax.swing.JButton();
-        btnexit = new javax.swing.JButton();
-        btncari = new javax.swing.JButton();
+        tblAnggota = new javax.swing.JTable();
 
-        jTextField4.setText("jTextField4");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jLabel1.setText("Kode Anggota");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(29, 44, 79, 16);
+        jLabel1.setBounds(20, 20, 100, 14);
+
+        txtKodeanggota.setText("jTextField1");
+        getContentPane().add(txtKodeanggota);
+        txtKodeanggota.setBounds(140, 20, 250, 30);
 
         jLabel2.setText("Nama Anggota");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(29, 84, 84, 16);
+        jLabel2.setBounds(20, 50, 120, 14);
+
+        txtNamaanggota.setText("jTextField2");
+        getContentPane().add(txtNamaanggota);
+        txtNamaanggota.setBounds(140, 50, 250, 30);
 
         jLabel3.setText("Alamat");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(29, 124, 40, 16);
+        jLabel3.setBounds(20, 80, 120, 14);
+
+        txtAlamat.setText("jTextField3");
+        getContentPane().add(txtAlamat);
+        txtAlamat.setBounds(140, 80, 250, 30);
 
         jLabel4.setText("Jenis Kelamin");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(29, 164, 77, 16);
+        jLabel4.setBounds(20, 110, 110, 14);
 
-        txtkodeanggota.setText("jTextField1");
-        getContentPane().add(txtkodeanggota);
-        txtkodeanggota.setBounds(150, 41, 373, 22);
+        cboJeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "L", "P" }));
+        getContentPane().add(cboJeniskelamin);
+        cboJeniskelamin.setBounds(140, 110, 130, 30);
 
-        txtnamaanggota.setText("jTextField2");
-        getContentPane().add(txtnamaanggota);
-        txtnamaanggota.setBounds(150, 81, 373, 22);
-
-        txtalamat.setText("jTextField3");
-        getContentPane().add(txtalamat);
-        txtalamat.setBounds(150, 121, 373, 22);
-
-        cbojeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbojeniskelamin);
-        cbojeniskelamin.setBounds(150, 161, 120, 22);
-
-        btninsert.setText("Insert");
-        btninsert.addActionListener(new java.awt.event.ActionListener() {
+        btnInsert.setText("Insert");
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btninsertActionPerformed(evt);
+                btnInsertActionPerformed(evt);
             }
         });
-        getContentPane().add(btninsert);
-        btninsert.setBounds(30, 220, 90, 25);
+        getContentPane().add(btnInsert);
+        btnInsert.setBounds(20, 160, 70, 23);
 
-        tblanggota.setModel(new javax.swing.table.DefaultTableModel(
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUpdate);
+        btnUpdate.setBounds(110, 160, 70, 23);
+
+        btnDelete.setText("Delete");
+        getContentPane().add(btnDelete);
+        btnDelete.setBounds(200, 160, 70, 23);
+
+        btnCancel.setText("Cancel");
+        getContentPane().add(btnCancel);
+        btnCancel.setBounds(290, 160, 70, 23);
+
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnExit);
+        btnExit.setBounds(380, 160, 80, 23);
+
+        btnCari.setText("Cari");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCari);
+        btnCari.setBounds(400, 20, 60, 23);
+
+        tblAnggota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Kode Anggota", "Nama Anggota", "Alamat", "Jenis Kelamin"
             }
         ));
-        jScrollPane1.setViewportView(tblanggota);
+        tblAnggota.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAnggotaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblAnggota);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(29, 270, 600, 402);
+        jScrollPane1.setBounds(10, 202, 452, 270);
 
-        btnupdate.setText("Update");
-        btnupdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnupdateActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnupdate);
-        btnupdate.setBounds(150, 220, 100, 25);
-
-        btndelete.setText("Delete");
-        getContentPane().add(btndelete);
-        btndelete.setBounds(279, 220, 90, 25);
-
-        btncancel.setText("Cancel");
-        getContentPane().add(btncancel);
-        btncancel.setBounds(401, 220, 100, 25);
-
-        btnexit.setText("Exit");
-        getContentPane().add(btnexit);
-        btnexit.setBounds(533, 220, 90, 25);
-
-        btncari.setText("Cari");
-        btncari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncariActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btncari);
-        btncari.setBounds(560, 40, 55, 25);
-
-        setSize(new java.awt.Dimension(680, 764));
+        setSize(new java.awt.Dimension(493, 527));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btninsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        controller.insert();
-        controller.clearForm();
-    }//GEN-LAST:event_btninsertActionPerformed
-
-    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-        // TODO add your handling code here:
-        controller.insert();
+        controller.update();
         controller.clearForm();
         controller.tampil();
-    }//GEN-LAST:event_btnupdateActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btncariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncariActionPerformed
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        // TODO add your handling code here:
+        controller.insert();
+        controller.clearForm();
+        
+    }//GEN-LAST:event_btnInsertActionPerformed
+
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         // TODO add your handling code here:
         controller.cari();
-    }//GEN-LAST:event_btncariActionPerformed
+    }//GEN-LAST:event_btnCariActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void tblAnggotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAnggotaMouseClicked
+        // TODO add your handling code here:
+        controller.tabelKlik();
+    }//GEN-LAST:event_tblAnggotaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -244,22 +245,21 @@ public class FormAnggota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncancel;
-    private javax.swing.JButton btncari;
-    private javax.swing.JButton btndelete;
-    private javax.swing.JButton btnexit;
-    private javax.swing.JButton btninsert;
-    private javax.swing.JButton btnupdate;
-    private javax.swing.JComboBox<String> cbojeniskelamin;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnInsert;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cboJeniskelamin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTable tblanggota;
-    private javax.swing.JTextField txtalamat;
-    private javax.swing.JTextField txtkodeanggota;
-    private javax.swing.JTextField txtnamaanggota;
+    private javax.swing.JTable tblAnggota;
+    private javax.swing.JTextField txtAlamat;
+    private javax.swing.JTextField txtKodeanggota;
+    private javax.swing.JTextField txtNamaanggota;
     // End of variables declaration//GEN-END:variables
 }
