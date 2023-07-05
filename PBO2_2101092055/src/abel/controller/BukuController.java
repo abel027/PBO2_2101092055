@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author User
@@ -28,66 +29,60 @@ public class BukuController {
     private BukuDao bukuDao;
     private Connection con;
     private Koneksi koneksi;
-
-    public BukuController(FormBuku formbuku) {
-        try {
+    
+    public BukuController(FormBuku formBuku){
+    try {
             this.formBuku = formBuku;
-            BukuDao = new BukuDaoImpl();
-            con = new Koneksi().getKoneksi();
+            bukuDao = new BukuDaoImpl();
+            koneksi = new Koneksi();
+            koneksi = new Koneksi();
+            con = koneksi.getKoneksi();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-   public void clearForm(){
-        formBuku.getTxtkodebuku().setText("");
-        formBuku.getTxtjudul().setText("");
-        formBuku.getTxtpengarang().setText("");
-        formBuku.getTxtpenerbit().setText("");
-
+    public void clearForm(){
+        formBuku.getTxtKodebuku().setText("");
+        formBuku.getTxtJudulbuku().setText("");
+        formBuku.getTxtPengarang().setText("");
+        formBuku.getTxtPenerbit().setText("");
     }
+    
    
-   
-   public void insert(){
+     public void insert(){
         try {
             buku = new Buku();
-            buku.setKodebuku(formBuku.getTxtkodebuku().getText());
-            buku.setJudul(
-                    formBuku.getTxtjudul().getText());
-            buku.setPengarang(
-                    formBuku.getTxtpengarang().getText());
-            buku.setPenerbit (
-                  formBuku.getTxtpenerbit().getText());  
-            bukuDao.insert(con,buku);
-            JOptionPane.showMessageDialog(formBuku, "Entri Ok");
+            buku.setKodebuku(formBuku.getTxtKodebuku().getText());
+            buku.setJudulbuku(formBuku.getTxtJudulbuku().getText());
+            buku.setPengarang(formBuku.getTxtPengarang().getText());
+            buku.setPenerbit(formBuku.getTxtPenerbit().getText());
+            bukuDao.insert(con, buku);
+            JOptionPane.showMessageDialog(formBuku, "Entri ok");
         } catch (Exception ex) {
             Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    } 
    
-   public void update(){
+    }
+     
+     public void update(){
        
         try {
-            buku = new Buku();
-            buku.setKodebuku(formBuku.getTxtkodebuku().getText());
-            buku.setJudul(
-                    formBuku.getTxtjudul().getText());
-            buku.setPengarang(
-                    formBuku.getTxtpengarang().getText());
-            buku.setPenerbit (
-                  formBuku.getTxtpenerbit().getText());  
-            bukuDao.insert(con,buku);
-            JOptionPane.showMessageDialog(formBuku, "Update Ok");
+            buku.setKodebuku(formBuku.getTxtKodebuku().getText());
+            buku.setJudulbuku(formBuku.getTxtJudulbuku().getText());
+            buku.setPengarang(formBuku.getTxtPengarang().getText());
+            buku.setPenerbit(formBuku.getTxtPenerbit().getText());
+            bukuDao.update(con, buku);
+            JOptionPane.showMessageDialog(formBuku,"Update ok");
         } catch (Exception ex) {
             Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
-   
-   public void delete(){
+     
+      public void delete(){
      
         try {
             bukuDao.delete(con, buku);
@@ -95,35 +90,33 @@ public class BukuController {
         } catch (Exception ex) {
             Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
-     
-     public void cari(){
-        try {
-            String kode = formBuku.getTxtkodebuku().getText();
+    }
+      
+      public void cari(){
+          try {
+            String kode = formBuku.getTxtKodebuku().getText();
             buku = bukuDao.getBuku(con,kode);
             if(buku != null){
-                formBuku.getTxtjudul().setText(buku.getKodebuku());
-                formBuku.getTxtpengarang().setText(buku.getPengarang());
-                formBuku.getTxtpenerbit().setText(buku.getPenerbit());
-
-
-            }else{
-                JOptionPane.showMessageDialog(formBuku, "Data Tidak Ada");
+                formBuku.getTxtJudulbuku().setText(buku.getJudulbuku());
+                formBuku.getTxtPengarang().setText(buku.getPengarang());
+                formBuku.getTxtPenerbit().setText(buku.getPenerbit());
+            } else {
+                JOptionPane.showMessageDialog(formBuku, "Data Tidak Ditemukan");
             }
         } catch (Exception ex) {
             Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
-   
-   public void tampil(){
+    }
+      
+    public void tampil(){
         try {
-            DefaultTableModel tabel = (DefaultTableModel) formBuku.getTblbuku().getModel();
+            DefaultTableModel tabel = (DefaultTableModel) formBuku.getTblBuku().getModel();
             tabel.setRowCount(0);
             List<Buku> list = bukuDao.getAllBuku(con);
             for (Buku buku1 : list) {
                 Object[] row = {
                     buku1.getKodebuku(),
-                    buku1.getJudul(),
+                    buku1.getJudulbuku(),
                     buku1.getPengarang(),
                     buku1.getPenerbit()
                 };
