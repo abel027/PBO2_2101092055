@@ -5,18 +5,21 @@
  */
 package abel.dao;
 
-import abel.model.Anggota;
-import java.util.List;
 import java.sql.Connection;
+import java.util.List;
+import abel.model.Anggota;
+
+
+
 
 /**
  *
  * @author User
  */
 public interface AnggotaDao {
-    void insert(Connection con, Anggota anggota) throws Exception;
-    void update(Connection con, Anggota anggota) throws Exception;
-    void delete(Connection con, Anggota anggota) throws Exception;
-    public Anggota getAnggota(Connection con, String Kode) throws Exception;
+    public void insert(Connection con, Anggota anggota) throws Exception;
+    public void update(Connection con, Anggota anggota) throws Exception;
+    public void delete(Connection con, Anggota anggota) throws Exception;
+    public Anggota getAnggota(Connection con, String kode) throws Exception;
     public List<Anggota> getAllAnggota(Connection con) throws Exception;
 }
