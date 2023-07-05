@@ -10,8 +10,8 @@ package abel.model;
  * @author User
  */
 public class Buku {
-    private String kodebuku;
-    private String judul;
+    private String kodebuku;    
+    private String judulbuku;
     private String pengarang;
     private String penerbit;
     
@@ -19,14 +19,13 @@ public class Buku {
         
     }
 
-    public Buku(String kodebuku, String judul, String pengarang, String penerbit) {
+    public Buku(String kodebuku, String judulbuku, String pengarang, String penerbit) {
         this.kodebuku = kodebuku;
-        this.judul = judul;
+        this.judulbuku = judulbuku;
         this.pengarang = pengarang;
         this.penerbit = penerbit;
     }
-    
-    
+
     public String getKodebuku() {
         return kodebuku;
     }
@@ -35,12 +34,12 @@ public class Buku {
         this.kodebuku = kodebuku;
     }
 
-    public String getJudul() {
-        return judul;
+    public String getJudulbuku() {
+        return judulbuku;
     }
 
-    public void setJudul(String judul) {
-        this.judul = judul;
+    public void setJudulbuku(String judulbuku) {
+        this.judulbuku = judulbuku;
     }
 
     public String getPengarang() {
@@ -58,6 +57,5 @@ public class Buku {
     public void setPenerbit(String penerbit) {
         this.penerbit = penerbit;
     }
+
 }
-    
-    
