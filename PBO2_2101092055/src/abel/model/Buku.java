@@ -10,7 +10,7 @@ package abel.model;
  * @author User
  */
 public class Buku {
-    private String kodebuku;    
+    private String kodebuku;
     private String judulbuku;
     private String pengarang;
     private String penerbit;
@@ -58,4 +58,6 @@ public class Buku {
         this.penerbit = penerbit;
     }
 
+    
+    
 }
