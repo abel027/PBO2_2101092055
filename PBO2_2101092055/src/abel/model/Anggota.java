@@ -14,8 +14,9 @@ public class Anggota {
     private String namaanggota;
     private String alamat;
     private String jeniskelamin;
-
-    public Anggota() {
+    
+    public Anggota(){
+        
     }
 
     public Anggota(String kodeanggota, String namaanggota, String alamat, String jeniskelamin) {
@@ -24,7 +25,7 @@ public class Anggota {
         this.alamat = alamat;
         this.jeniskelamin = jeniskelamin;
     }
-    
+
 
     public String getKodeanggota() {
         return kodeanggota;
@@ -59,11 +60,13 @@ public class Anggota {
     }
     
     public static void main(String[] args) {
-        Anggota ali = new Anggota("A001","Ali","Padang","L");
+        Anggota ali = new Anggota("A001","Abel","Padang","L");
         ali.setKodeanggota("001");
         ali.kodeanggota="002";
-        
+    
         System.out.println("Kode    "+ali.getKodeanggota());
     }
+
+   
     
 }
