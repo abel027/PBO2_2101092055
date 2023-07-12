@@ -30,9 +30,8 @@ public class AnggotaDaoImpl implements AnggotaDao {
     }
 
     @Override
-    public void update(Connection con, Anggota anggota) throws Exception {
-        String sql = "update anggota set namaanggota=?, alamat=?, jekel=? "
-                + "where kodeanggota=?";
+    public void update(Connection con,Anggota anggota) throws Exception {
+        String sql = "update anggota set namaanggota=?, alamat=?, jeniskelamin=? where kodeanggota=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, anggota.getNamaanggota());
         ps.setString(2, anggota.getAlamat());
@@ -43,38 +42,38 @@ public class AnggotaDaoImpl implements AnggotaDao {
 
     @Override
     public void delete(Connection con, Anggota anggota) throws Exception {
-        String sql = "delete from anggota "
-                + "where kodeanggota = ?";
+        String sql = "delete from anggota where kodeanggota=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, anggota.getKodeanggota());
+        System.err.println("Kode   "+anggota.getKodeanggota());
         ps.executeUpdate();
     }
 
     @Override
-    public Anggota getAnggota(Connection con, String kode) throws Exception {
-        String sql = "select * from anggota where kodeanggota = ?";
+    public Anggota getAnggota(Connection con,String kode) throws Exception {
+        String sql = "select * from anggota where kodeanggota=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kode);
         ResultSet rs = ps.executeQuery();
         Anggota anggota = null;
-        if (rs.next()) {
+        if (rs.next()){
             anggota = new Anggota();
             anggota.setKodeanggota(rs.getString(1));
             anggota.setNamaanggota(rs.getString(2));
             anggota.setAlamat(rs.getString(3));
             anggota.setJeniskelamin(rs.getString(4));
         }
-        return anggota;
+         return anggota;
     }
 
     @Override
     public List<Anggota> getAllAnggota(Connection con) throws Exception {
         String sql = "select * from anggota";
-        PreparedStatement ps = con.prepareStatement(sql);
+        PreparedStatement ps = con.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         List<Anggota> list = new ArrayList<>();
         Anggota anggota = null;
-        while (rs.next()) {
+        while (rs.next()){
             anggota = new Anggota();
             anggota.setKodeanggota(rs.getString(1));
             anggota.setNamaanggota(rs.getString(2));
@@ -82,7 +81,8 @@ public class AnggotaDaoImpl implements AnggotaDao {
             anggota.setJeniskelamin(rs.getString(4));
             list.add(anggota);
         }
-        return list;
+         return list;
+   
     }
-
+    
 }
