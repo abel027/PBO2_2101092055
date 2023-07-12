@@ -28,19 +28,18 @@ public class BukuController {
     private Buku buku;
     private BukuDao bukuDao;
     private Connection con;
-    private Koneksi koneksi;
+    private Koneksi k;
     
     public BukuController(FormBuku formBuku){
     try {
             this.formBuku = formBuku;
             bukuDao = new BukuDaoImpl();
-            koneksi = new Koneksi();
-            koneksi = new Koneksi();
-            con = koneksi.getKoneksi();
+            k = new Koneksi();
+            con = k.getKoneksi();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -51,7 +50,6 @@ public class BukuController {
         formBuku.getTxtPenerbit().setText("");
     }
     
-   
      public void insert(){
         try {
             buku = new Buku();
@@ -68,7 +66,6 @@ public class BukuController {
     }
      
      public void update(){
-       
         try {
             buku.setKodebuku(formBuku.getTxtKodebuku().getText());
             buku.setJudulbuku(formBuku.getTxtJudulbuku().getText());
@@ -79,11 +76,9 @@ public class BukuController {
         } catch (Exception ex) {
             Logger.getLogger(BukuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
      
       public void delete(){
-     
         try {
             bukuDao.delete(con, buku);
             JOptionPane.showMessageDialog(formBuku, "Delete Ok");
