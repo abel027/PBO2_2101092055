@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package abel.view;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import abel.controller.PengembalianController;
 
 /**
  *
@@ -14,9 +17,48 @@ public class FormPengembalian extends javax.swing.JFrame {
     /**
      * Creates new form FormPengembalian
      */
+    PengembalianController controller;
     public FormPengembalian() {
         initComponents();
+        controller = new PengembalianController(this);
+        controller.tampil();
+        controller.clearForm();
     }
+
+    public JTable getTblPengembalian() {
+        return tblPengembalian;
+    }
+
+    public JTextField getTxtDenda() {
+        return txtDenda;
+    }
+
+    public JTextField getTxtKodeanggota() {
+        return txtKodeanggota;
+    }
+
+    public JTextField getTxtKodebuku() {
+        return txtKodebuku;
+    }
+
+    public JTextField getTxtTerlambat() {
+        return txtTerlambat;
+    }
+
+    public JTextField getTxtTgldikembalikan() {
+        return txtTgldikembalikan;
+    }
+
+    public JTextField getTxtTglkembali() {
+        return txtTglkembali;
+    }
+
+    public JTextField getTxtTglpinjam() {
+        return txtTglpinjam;
+    }
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,109 +70,168 @@ public class FormPengembalian extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        cboKodeanggota = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        cboKodebuku = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txtTglPinjam = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtTglKembali = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtKodeanggota = new javax.swing.JTextField();
+        txtKodebuku = new javax.swing.JTextField();
+        txtTglpinjam = new javax.swing.JTextField();
+        txtTglkembali = new javax.swing.JTextField();
+        txtTgldikembalikan = new javax.swing.JTextField();
+        txtTerlambat = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPengembalian = new javax.swing.JTable();
+        btnInsert = new javax.swing.JButton();
+        btnCari = new javax.swing.JButton();
+        txtDenda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jLabel1.setText("Kode Anggota");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 20, 100, 14);
-
-        cboKodeanggota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cboKodeanggota);
-        cboKodeanggota.setBounds(140, 20, 380, 30);
 
         jLabel2.setText("Kode Buku");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 50, 110, 14);
 
-        cboKodebuku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cboKodebuku);
-        cboKodebuku.setBounds(140, 50, 380, 30);
+        jLabel3.setText("Tanggal Pinjam");
 
-        jLabel3.setText("Tgl Pinjam");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 80, 110, 14);
+        jLabel4.setText("Tanggal Kembali");
 
-        txtTglPinjam.setText("jTextField1");
-        getContentPane().add(txtTglPinjam);
-        txtTglPinjam.setBounds(140, 80, 380, 30);
-
-        jLabel4.setText("Tgl Kembali");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 110, 100, 14);
-
-        txtTglKembali.setText("jTextField2");
-        getContentPane().add(txtTglKembali);
-        txtTglKembali.setBounds(140, 110, 380, 30);
-
-        jLabel5.setText("Tgl Dikembalikan");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 140, 100, 14);
-
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(140, 140, 380, 30);
+        jLabel5.setText("Tanggal Dikembalikan");
 
         jLabel6.setText("Terlambat");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(20, 170, 90, 14);
-
-        jTextField2.setText("jTextField2");
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(140, 170, 120, 30);
 
         jLabel7.setText("Denda");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 200, 110, 14);
 
-        jTextField3.setText("jTextField3");
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(140, 200, 120, 30);
+        txtKodeanggota.setText("jTextField1");
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 240, 100, 30);
+        txtKodebuku.setText("jTextField2");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        txtTglpinjam.setText("jTextField3");
+
+        txtTglkembali.setText("jTextField4");
+
+        txtTgldikembalikan.setText("jTextField5");
+
+        txtTerlambat.setText("jTextField6");
+
+        tblPengembalian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Kode Anggota", "Nama Anggota", "Kode Buku", "Tgl Pinjam", "Tg Kembali", "Tgl Dikembalikan", "Terlambat", "Denda"
+                "Kode Anggota", "Kode Buku", "Tanggal Pinjam", "Tanggal Kembali", "Tanggal Dikembalikan", "Terlambat", "Denda"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        tblPengembalian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPengembalianMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblPengembalian);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 282, 840, 320);
+        btnInsert.setText("Insert");
+
+        btnCari.setText("Cari");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
+
+        txtDenda.setText("jTextField1");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(78, 78, 78)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtKodeanggota, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                                    .addComponent(txtKodebuku)
+                                    .addComponent(txtTglpinjam)
+                                    .addComponent(txtTglkembali)
+                                    .addComponent(txtTgldikembalikan))
+                                .addGap(45, 45, 45)
+                                .addComponent(btnCari))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtDenda, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTerlambat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 999, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInsert))
+                        .addGap(0, 69, Short.MAX_VALUE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtKodeanggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCari))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtKodebuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtTglpinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtTglkembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtTgldikembalikan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtTerlambat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtDenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(btnInsert)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_btnCariActionPerformed
+
+    private void tblPengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPengembalianMouseClicked
+        // TODO add your handling code here:
+        controller.getPengembalian();
+    }//GEN-LAST:event_tblPengembalianMouseClicked
 
     /**
      * @param args the command line arguments
@@ -168,9 +269,8 @@ public class FormPengembalian extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cboKodeanggota;
-    private javax.swing.JComboBox<String> cboKodebuku;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnInsert;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -179,11 +279,15 @@ public class FormPengembalian extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField txtTglKembali;
-    private javax.swing.JTextField txtTglPinjam;
+    private javax.swing.JTable tblPengembalian;
+    private javax.swing.JTextField txtDenda;
+    private javax.swing.JTextField txtKodeanggota;
+    private javax.swing.JTextField txtKodebuku;
+    private javax.swing.JTextField txtTerlambat;
+    private javax.swing.JTextField txtTgldikembalikan;
+    private javax.swing.JTextField txtTglkembali;
+    private javax.swing.JTextField txtTglpinjam;
     // End of variables declaration//GEN-END:variables
+
+   
 }
