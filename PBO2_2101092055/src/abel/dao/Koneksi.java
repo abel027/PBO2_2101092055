@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package abel.dao;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 
 /**
  *
@@ -15,15 +15,14 @@ import java.sql.SQLException;
  */
 public class Koneksi {
     private String url = "jdbc:mysql://localhost/pbo2_2101092055";
-    private String username="root";
+    private String username = "root";
     private String password = "";
     
-
-    public Connection getKoneksi() throws ClassNotFoundException, SQLException {
+    public Connection getKoneksi() throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.jdbc.Driver");
         return DriverManager.getConnection(url, username, password);
     }
-    
 
+   
 }
 
