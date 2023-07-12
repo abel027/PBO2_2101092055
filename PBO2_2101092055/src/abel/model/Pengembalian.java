@@ -20,9 +20,6 @@ public class Pengembalian {
     private int terlambat;
     private double denda;
 
-    public Pengembalian() {
-    }
-
     public String getKodeanggota() {
         return kodeanggota;
     }
@@ -67,6 +64,7 @@ public class Pengembalian {
     }
 
     public double getDenda() {
+        denda = terlambat * 1000;
         return denda;
     }
 
